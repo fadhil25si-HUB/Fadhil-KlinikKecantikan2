@@ -3190,4 +3190,24 @@ span.flatpickr-weekday {
 }
 
 
+/* Warna baru sidebar Griya Puspita */
+.sidebar-wrapper {
+    background-color: #EEF2FC !important;
+}
 
+.sidebar-wrapper .sidebar-brand,
+.sidebar-wrapper .sidebar-menu-link,
+.sidebar-wrapper .sidebar-menu-link i {
+    color: #333B50 !important;
+}
+
+.sidebar-wrapper .sidebar-menu-link:hover,
+.sidebar-wrapper .sidebar-menu-link.active {
+    background-color: #DCE5FA !important;
+    color: #B18D38 !important;
+}
+
+.sidebar-wrapper .sidebar-menu-link:hover i,
+.sidebar-wrapper .sidebar-menu-link.active i {
+    color: #B18D38 !important;
+}

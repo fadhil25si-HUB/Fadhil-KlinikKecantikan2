@@ -14,13 +14,12 @@
   <link rel="icon" type="image/png" href="assets/assets-admin/images/favicon.ico">
 
   <!-- Local Third-Party Libraries (100% Offline Compatible) -->
-  <link rel="stylesheet" href="assets/assets-admin/libs/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/assets-admin/libs/bootstrap-icons/bootstrap-icons.css">
-  <link rel="stylesheet" href="assets/assets-admin/libs/apexcharts/apexcharts.css">
-  <link rel="stylesheet" href="assets/assets-admin/libs/flatpickr/flatpickr.min.css">
+<link rel="stylesheet" href="{{ asset('assets/assets-admin/libs/bootstrap/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/assets-admin/libs/bootstrap-icons/bootstrap-icons.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/assets-admin/libs/apexcharts/apexcharts.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/assets-admin/libs/flatpickr/flatpickr.min.css') }}">
 
-  <!-- Main Design System & Custom Stylesheet -->
-  <link rel="stylesheet" href="assets/assets-admin/css/main.css">
+<link rel="stylesheet" href="{{ asset('assets/assets-admin/css/main.css') }}">
 </head>
 
 <body>
@@ -627,12 +626,10 @@
          ========================================== -->
 
   <!-- Local Third-Party Libraries Script dependencies -->
-  <script src="assets/assets-admin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/assets-admin/libs/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/assets-admin/libs/flatpickr/flatpickr.min.js"></script>
+<script src="{{ asset('assets/assets-admin/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Local dashboard interactions controller -->
-  <script src="assets/assets-admin/js/dashboard.js"></script>
+  <script src="{{ asset('assets/assets-admin/js/dashboard.js') }}"></script>
 </body>
 
 </html>
