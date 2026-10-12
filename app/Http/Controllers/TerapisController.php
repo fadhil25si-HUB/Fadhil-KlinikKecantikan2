@@ -2,63 +2,81 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Terapis;
 use Illuminate\Http\Request;
 
 class TerapisController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $terapis = Terapis::all();
+
+        return view('terapis.index', compact('terapis'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('terapis.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_terapis' => 'required|string|max:255',
+            'phone' => 'nullable|string|max:20',
+            'status' => 'required|in:Aktif,Nonaktif',
+        ]);
+
+        Terapis::create($request->only([
+            'nama_terapis',
+            'phone',
+            'status',
+        ]));
+
+        return redirect()->route('terapis.index')
+            ->with('success', 'Data terapis berhasil ditambahkan!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        $terapis = Terapis::findOrFail($id);
+
+        return view('terapis.show', compact('terapis'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $terapis = Terapis::findOrFail($id);
+
+        return view('terapis.edit', compact('terapis'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nama_terapis' => 'required|string|max:255',
+            'phone' => 'nullable|string|max:20',
+            'status' => 'required|in:Aktif,Nonaktif',
+        ]);
+
+        $terapis = Terapis::findOrFail($id);
+
+        $terapis->update($request->only([
+            'nama_terapis',
+            'phone',
+            'status',
+        ]));
+
+        return redirect()->route('terapis.index')
+            ->with('success', 'Data terapis berhasil diperbarui!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $terapis = Terapis::findOrFail($id);
+        $terapis->delete();
+
+        return redirect()->route('terapis.index')
+            ->with('success', 'Data terapis berhasil dihapus!');
     }
 }
