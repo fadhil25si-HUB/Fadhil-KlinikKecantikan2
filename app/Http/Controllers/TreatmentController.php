@@ -11,12 +11,12 @@ class TreatmentController extends Controller
     {
         $treatment = Treatment::all();
 
-        return view('treatment.index', compact('treatment'));
+        return view('admin.treatment.index', compact('treatment'));
     }
 
     public function create()
     {
-        return view('treatment.create');
+        return view('admin.treatment.create');
     }
 
     public function store(Request $request)
@@ -41,14 +41,14 @@ class TreatmentController extends Controller
     {
         $treatment = Treatment::findOrFail($id);
 
-        return view('treatment.show', compact('treatment'));
+        return view('admin.treatment.show', compact('treatment'));
     }
 
     public function edit(string $id)
     {
         $treatment = Treatment::findOrFail($id);
 
-        return view('treatment.edit', compact('treatment'));
+        return view('admin.treatment.edit', compact('treatment'));
     }
 
     public function update(Request $request, string $id)

@@ -11,12 +11,12 @@ class PelangganController extends Controller
     {
         $pelanggan = Pelanggan::all();
 
-        return view('pelanggan.index', compact('pelanggan'));
+        return view('admin.pelanggan.index', compact('pelanggan'));
     }
 
     public function create()
     {
-        return view('pelanggan.create');
+        return view('admin.pelanggan.create');
     }
 
     public function store(Request $request)
@@ -33,21 +33,21 @@ class PelangganController extends Controller
         Pelanggan::create($request->all());
 
         return redirect()->route('pelanggan.index')
-            ->with('success', 'Data customer berhasil ditambahkan!');
+        ->with('success', 'Data customer berhasil ditambahkan!');
     }
 
     public function show(string $id)
     {
         $pelanggan = Pelanggan::findOrFail($id);
 
-        return view('pelanggan.show', compact('pelanggan'));
+        return view('admin.pelanggan.show', compact('pelanggan'));
     }
 
     public function edit(string $id)
     {
         $pelanggan = Pelanggan::findOrFail($id);
 
-        return view('pelanggan.edit', compact('pelanggan'));
+        return view('admin.pelanggan.edit', compact('pelanggan'));
     }
 
     public function update(Request $request, string $id)
@@ -65,7 +65,7 @@ class PelangganController extends Controller
         $pelanggan->update($request->all());
 
         return redirect()->route('pelanggan.index')
-            ->with('success', 'Data customer berhasil diperbarui!');
+        ->with('success', 'Data customer berhasil diperbarui!');
     }
 
     public function destroy(string $id)
@@ -74,6 +74,6 @@ class PelangganController extends Controller
         $pelanggan->delete();
 
         return redirect()->route('pelanggan.index')
-            ->with('success', 'Data customer berhasil dihapus!');
+        ->with('success', 'Data customer berhasil dihapus!');
     }
 }

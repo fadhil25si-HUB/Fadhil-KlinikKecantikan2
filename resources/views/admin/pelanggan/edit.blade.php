@@ -1,15 +1,13 @@
+@extends('layout.admin.app')
 
-@extends('admin.layout')
-
-@section('title', 'Tambah Customer - Griya Puspita')
+@section('title', 'Edit Customer - Griya Puspita')
 
 @section('content')
     <div class="page-header py-4">
-        <h1 class="h4">Tambah Customer</h1>
-        <p>Form untuk menambahkan data customer baru.</p>
+        <h1 class="h4">Edit Customer</h1>
+        <p>Perbarui data customer Griya Puspita Salon.</p>
 
-        <a href="{{ route('pelanggan.index') }}"
-           class="btn btn-outline-secondary mb-3">
+        <a href="{{ route('pelanggan.index') }}" class="btn btn-outline-secondary mb-3">
             Kembali
         </a>
     </div>
@@ -18,6 +16,7 @@
         <div class="col-12 mb-4">
             <div class="card border-0 shadow">
                 <div class="card-body">
+
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul class="mb-0">
@@ -28,21 +27,24 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('pelanggan.store') }}" method="POST">
+                    <form action="{{ route('pelanggan.update', $pelanggan->pelanggan_id) }}" method="POST">
                         @csrf
+                        @method('PUT')
 
                         <div class="row">
                             <div class="col-lg-4 col-sm-6">
                                 <div class="mb-3">
                                     <label for="first_name" class="form-label">Nama Depan</label>
                                     <input type="text" id="first_name" name="first_name"
-                                           class="form-control" value="{{ old('first_name') }}" required>
+                                           class="form-control"
+                                           value="{{ old('first_name', $pelanggan->first_name) }}" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="last_name" class="form-label">Nama Belakang</label>
                                     <input type="text" id="last_name" name="last_name"
-                                           class="form-control" value="{{ old('last_name') }}" required>
+                                           class="form-control"
+                                           value="{{ old('last_name', $pelanggan->last_name) }}" required>
                                 </div>
                             </div>
 
@@ -50,16 +52,17 @@
                                 <div class="mb-3">
                                     <label for="birthday" class="form-label">Tanggal Lahir</label>
                                     <input type="date" id="birthday" name="birthday"
-                                           class="form-control" value="{{ old('birthday') }}" required>
+                                           class="form-control"
+                                           value="{{ old('birthday', $pelanggan->birthday) }}" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="gender" class="form-label">Gender</label>
                                     <select id="gender" name="gender" class="form-select" required>
-                                        <option value="">-- Pilih --</option>
-                                        <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
-                                        <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
-                                        <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>Other</option>
+                                        <option value="">-- Pilih Gender --</option>
+                                        <option value="Male" {{ old('gender', $pelanggan->gender) == 'Male' ? 'selected' : '' }}>Male</option>
+                                        <option value="Female" {{ old('gender', $pelanggan->gender) == 'Female' ? 'selected' : '' }}>Female</option>
+                                        <option value="Other" {{ old('gender', $pelanggan->gender) == 'Other' ? 'selected' : '' }}>Other</option>
                                     </select>
                                 </div>
                             </div>
@@ -68,17 +71,19 @@
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
                                     <input type="email" id="email" name="email"
-                                           class="form-control" value="{{ old('email') }}" required>
+                                           class="form-control"
+                                           value="{{ old('email', $pelanggan->email) }}" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="phone" class="form-label">Telepon</label>
                                     <input type="text" id="phone" name="phone"
-                                           class="form-control" value="{{ old('phone') }}" required>
+                                           class="form-control"
+                                           value="{{ old('phone', $pelanggan->phone) }}" required>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">
-                                    Simpan Customer
+                                    Simpan Perubahan
                                 </button>
 
                                 <a href="{{ route('pelanggan.index') }}"
@@ -88,6 +93,7 @@
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>

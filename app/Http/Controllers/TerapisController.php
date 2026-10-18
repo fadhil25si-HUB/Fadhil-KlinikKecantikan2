@@ -11,12 +11,12 @@ class TerapisController extends Controller
     {
         $terapis = Terapis::all();
 
-        return view('terapis.index', compact('terapis'));
+        return view('admin.terapis.index', compact('terapis'));
     }
 
     public function create()
     {
-        return view('terapis.create');
+        return view('admin.terapis.create');
     }
 
     public function store(Request $request)
@@ -41,14 +41,14 @@ class TerapisController extends Controller
     {
         $terapis = Terapis::findOrFail($id);
 
-        return view('terapis.show', compact('terapis'));
+        return view('admin.terapis.show', compact('terapis'));
     }
 
     public function edit(string $id)
     {
         $terapis = Terapis::findOrFail($id);
 
-        return view('terapis.edit', compact('terapis'));
+        return view('admin.terapis.edit', compact('terapis'));
     }
 
     public function update(Request $request, string $id)

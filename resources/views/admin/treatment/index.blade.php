@@ -1,14 +1,14 @@
-@extends('admin.layout')
+@extends('layout.admin.app')
 
-@section('title', 'Daftar Customer - Griya Puspita')
+@section('title', 'Daftar Treatment - Griya Puspita')
 
 @section('content')
     <div class="page-header py-4">
-        <h1 class="h4">Daftar Customer</h1>
-        <p>Kelola data customer Griya Puspita Salon.</p>
+        <h1 class="h4">Daftar Treatment</h1>
+        <p>Kelola layanan treatment Griya Puspita Salon.</p>
 
-        <a href="{{ route('pelanggan.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-circle me-2"></i>Tambah Customer
+        <a href="{{ route('treatment.create') }}" class="btn btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>Tambah Treatment
         </a>
     </div>
 
@@ -25,34 +25,32 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Nama Customer</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Gender</th>
-                            <th>Email</th>
-                            <th>Telepon</th>
+                            <th>Nama Treatment</th>
+                            <th>Harga</th>
+                            <th>Deskripsi</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        @forelse ($pelanggan as $item)
+                        @forelse ($treatment as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->first_name }} {{ $item->last_name }}</td>
-                                <td>{{ $item->birthday }}</td>
-                                <td>{{ $item->gender }}</td>
-                                <td>{{ $item->email }}</td>
-                                <td>{{ $item->phone }}</td>
+                                <td>{{ $item->nama_treatment }}</td>
+                                <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                                <td>{{ $item->deskripsi ?? '-' }}</td>
                                 <td>
-                                    <a href="{{ route('pelanggan.edit', $item->pelanggan_id) }}"
+                                    <a href="{{ route('treatment.edit', $item->treatment_id) }}"
                                        class="btn btn-sm btn-warning">
                                         Edit
                                     </a>
 
-                                    <form action="{{ route('pelanggan.destroy', $item->pelanggan_id) }}"
+                                    <form action="{{ route('treatment.destroy', $item->treatment_id) }}"
                                           method="POST" class="d-inline"
-                                          onsubmit="return confirm('Yakin ingin menghapus customer ini?')">
+                                          onsubmit="return confirm('Yakin ingin menghapus treatment ini?')">
                                         @csrf
                                         @method('DELETE')
+
                                         <button type="submit" class="btn btn-sm btn-danger">
                                             Hapus
                                         </button>
@@ -61,8 +59,8 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="text-center">
-                                    Belum ada data customer.
+                                <td colspan="5" class="text-center">
+                                    Belum ada data treatment.
                                 </td>
                             </tr>
                         @endforelse

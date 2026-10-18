@@ -1,4 +1,4 @@
-@extends('admin.layout')
+@extends('layout.admin.app')
 
 @section('title', 'Daftar Terapis - Griya Puspita')
 
