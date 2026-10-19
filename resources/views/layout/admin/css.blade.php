@@ -1,5 +1,5 @@
 {{-- Favicon --}}
-<link rel="icon" type="image/png" href="{{ asset('assets/assets-admin/images/favicon.ico') }}">
+<link rel="icon" type="image/png" href="{{ asset('assets/assets-admin/images/LogoGriyaPuspita.png') }}">
 
 {{-- Library lokal --}}
 <link rel="stylesheet" href="{{ asset('assets/assets-admin/libs/bootstrap/css/bootstrap.min.css') }}">

@@ -1,4 +1,3 @@
-```php
 <!DOCTYPE html>
 <html lang="id">
 
@@ -6,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Griya Puspita')</title>
+    <title>Griya-Puspita</title>
 
     {{-- start css --}}
     @include('layout.admin.css')
@@ -40,4 +39,3 @@
 </body>
 
 </html>
-```
